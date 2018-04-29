@@ -25,10 +25,19 @@ getUser(id): Observable<User> {
         .map(response => <User>response.json())
         .catch(this.handleError);
 }
-updateUser(id: number , user: User){
+
+updateUser(id: number , user: User) {
     return this.authHttp.put(this.baseUrl + 'users/' + id , user).catch(this.handleError);
 }
 
+setMainPhoto(userId: number , photoId: number) {
+    return this.authHttp.post(this.baseUrl + 'users/' + userId + '/photos/' + photoId + '/setMain', {})
+    .catch(this.handleError);
+}
+
+deletePhoto (userId: number , id: number) {
+    return this.authHttp.delete(this.baseUrl + 'users/' + userId + '/photos/' + id ).catch(this.handleError);
+}
 private handleError(error: any) {
     const applicationError = error.headers.get('Application-Error');
     if (applicationError) {
