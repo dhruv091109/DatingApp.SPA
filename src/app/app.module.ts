@@ -1,9 +1,9 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
-
+import { BsDropdownModule, TabsModule  } from 'ngx-bootstrap';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 
 import { AppComponent } from './app.component';
@@ -50,13 +50,15 @@ import { FileUploadModule } from 'ng2-file-upload';
   imports: [
     BrowserModule,
     HttpModule,
+    ReactiveFormsModule,
     FormsModule,
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     AuthModule,
     TabsModule.forRoot(),
     NgxGalleryModule,
-    FileUploadModule
+    FileUploadModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     AuthService,
